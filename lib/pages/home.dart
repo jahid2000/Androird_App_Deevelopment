@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
      // http.Response response = await http.get(Uri.parse("https://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&appid=9a8aecb6395eb0eb807191d06386c3a9"));
       var results = await GetLocationData.getResponseForCurrentLocation();
       setState(() {
-        temp = (results['main']['temp']).toStringAsFixed(2);
+        temp = (results['main']['temp']-273).toStringAsFixed(2);
         this.description = results['weather'][0]['description'];
         this.currently = results['weather'][0]['main'];
         this.humidity = results['main']['humidity'];
@@ -178,10 +178,17 @@ class _HomeState extends State<Home> {
 
                       TextButton(onPressed: () {
                         getDataWithCity(textEditingController.text);
-                      }, child: const Text("Search")),
+                      }, child: const Text(
+                          "Search",
+                              style:TextStyle(
+                          color:Colors.blue,
+                        fontSize: 18.0,
+                                fontWeight: FontWeight.w400,
+                      ),
+                      )),
                       TextButton(onPressed:(){ getDataWithLL();}, child: const Text("get current location")),
                       Text(
-                      "view weather",
+                      "GetWeather",
                   style: TextStyle(
               color: Colors.green,
               fontSize: 30.0,
@@ -189,6 +196,8 @@ class _HomeState extends State<Home> {
 
              ),
                    ),
+
+
                       AdditionalFeatures(response: res),
                     ],
                 ),

@@ -18,7 +18,14 @@ class _AdditionalFeaturesState extends State<AdditionalFeatures> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Text("Longitude: ${widget.response['coord']['lon']}"),
+                Text("Latitude: ${widget.response['coord']['lat']}"),
+              ]
 
+          ),
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
