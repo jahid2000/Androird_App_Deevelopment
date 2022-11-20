@@ -107,14 +107,17 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.green,
           appBar: AppBar(
             centerTitle: false,
             title: Text('Weather App'),
 
           ),
           body: Column(
+
             children: <Widget>[
                 Container(
+                  //color: Colors.green,
                   child: Column (
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -144,16 +147,18 @@ class _HomeState extends State<Home> {
 
                           ),
                         ),
-                          Text(
-                            temp!=null?(double.parse(temp)*1.8+32).toString()+"\u00B0F":"temperature is loading",
-                            style: TextStyle(
-                              color: Colors.red,
-                              fontSize:18.0,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
+
                   ],
                       ),
+                    Text(
+                      "clear sky",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w200,
+                      ),
+                    ),
+
 
                     // Text(date),
                       Text(
@@ -178,27 +183,24 @@ class _HomeState extends State<Home> {
 
                       TextButton(onPressed: () {
                         getDataWithCity(textEditingController.text);
-                      }, child: const Text(
+                      }, child:  Text(
                           "Search",
                               style:TextStyle(
-                          color:Colors.blue,
+                          color:Colors.black,
                         fontSize: 18.0,
+
                                 fontWeight: FontWeight.w400,
                       ),
                       )),
-                      TextButton(onPressed:(){ getDataWithLL();}, child: const Text("get current location")),
-                      Text(
-                      "GetWeather",
-                  style: TextStyle(
-              color: Colors.green,
-              fontSize: 30.0,
-              fontWeight: FontWeight.w800,
-
-             ),
-                   ),
+                      TextButton(onPressed:(){ getDataWithLL();}, child: const Text("get current location",
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                      )),
 
 
                       AdditionalFeatures(response: res),
+
                     ],
                 ),
                 ),

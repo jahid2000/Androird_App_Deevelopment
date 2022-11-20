@@ -14,6 +14,7 @@ class _AdditionalFeaturesState extends State<AdditionalFeatures> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+
       height: 200,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -21,15 +22,20 @@ class _AdditionalFeaturesState extends State<AdditionalFeatures> {
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                Text("Longitude: ${widget.response['coord']['lon']}"),
                 Text("Latitude: ${widget.response['coord']['lat']}"),
+                Text("Longitude: ${widget.response['coord']['lon']}"),
               ]
 
           ),
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                const Text("আর্দ্রতা:"),
+                const Text("Humidity",
+                  style: TextStyle(
+                    color: Colors.red,
+                  ),
+
+                ),
                 Text("${widget.response['main']['humidity']}%"),
               ]
 
@@ -37,7 +43,11 @@ class _AdditionalFeaturesState extends State<AdditionalFeatures> {
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                const Text("বায়ু-চাপ:"),
+                const Text("Preasure",
+                style: TextStyle(
+                  color: Colors.red,
+                ),
+                ),
                 Text("${widget.response['wind']['speed']}mmHg")
               ]
 
@@ -45,7 +55,11 @@ class _AdditionalFeaturesState extends State<AdditionalFeatures> {
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                const Text("দৃষ্টিসীমা:"),
+                const Text("Visibility",
+                style: TextStyle(
+                  color: Colors.red,
+                ),
+                ),
                 Text("${widget.response['visibility']/1000.0} km")
               ]
 
